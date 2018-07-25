@@ -47,15 +47,15 @@ view: transformations_base {
     type: string
     case: {
       when: {
-        sql: ${device} LIKE '%Desktop%' ;;
+        sql: LOWER(${device}) LIKE '%desktop%' ;;
         label: "Desktop"
       }
       when: {
-        sql: ${device} LIKE '%Mobile%' ;;
+        sql: LOWER(${device}) LIKE '%mobile%' ;;
         label: "Mobile"
       }
       when: {
-        sql: ${device} LIKE '%Tablet%' ;;
+        sql: LOWER(${device}) LIKE '%tablet%' ;;
         label: "Tablet"
       }
       else: "Other"
