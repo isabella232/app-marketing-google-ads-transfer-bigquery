@@ -27,16 +27,20 @@ view: transformations_base {
     type: string
     case: {
       when: {
-        sql: ${ad_network_type1} = 'SHASTA_AD_NETWORK_TYPE_1_SEARCH' AND ${ad_network_type2} = 'SHASTA_AD_NETWORK_TYPE_2_SEARCH' ;;
+        sql: REPLACE(UPPER(${ad_network_type1}), "SHASTA_AD_NETWORK_TYPE_1_", "") = 'SEARCH' AND REPLACE(UPPER(${ad_network_type2}), "SHASTA_AD_NETWORK_TYPE_2_", "") = 'SEARCH' ;;
         label: "Search"
       }
       when: {
-        sql: ${ad_network_type1} = 'SHASTA_AD_NETWORK_TYPE_1_SEARCH' AND ${ad_network_type2} = 'SHASTA_AD_NETWORK_TYPE_2_SEARCH_PARTNERS' ;;
+        sql: REPLACE(UPPER(${ad_network_type1}), "SHASTA_AD_NETWORK_TYPE_1_", "") = 'SEARCH' AND REPLACE(UPPER(${ad_network_type2}), "SHASTA_AD_NETWORK_TYPE_2_", "") = 'SEARCH_PARTNERS' ;;
         label: "Search Partners"
       }
       when: {
-        sql: ${ad_network_type1} = 'SHASTA_AD_NETWORK_TYPE_1_CONTENT' ;;
+        sql: REPLACE(UPPER(${ad_network_type1}), "SHASTA_AD_NETWORK_TYPE_1_", "") = 'CONTENT' ;;
         label: "Content"
+      }
+      when: {
+        sql: REPLACE(UPPER(${ad_network_type1}), "SHASTA_AD_NETWORK_TYPE_1_", "") = 'YOUTUBE_WATCH' ;;
+        label: "YouTube"
       }
       else: "Other"
     }
