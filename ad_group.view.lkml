@@ -78,7 +78,6 @@ view: ad_group_adapter {
       icon_url: "https://www.gstatic.com/awn/awsm/brt/awn_awsm_20171108_RC00/aw_blend/favicon.ico"
       label: "Change Bid"
     }
-    required_fields: [external_customer_id, campaign_id, ad_group_id]
   }
 
   dimension: ad_group_status {

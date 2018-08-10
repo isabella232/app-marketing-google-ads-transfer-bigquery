@@ -119,7 +119,6 @@ view: campaign_adapter {
       icon_url: "https://www.gstatic.com/awn/awsm/brt/awn_awsm_20171108_RC00/aw_blend/favicon.ico"
       label: "Change Budget"
     }
-    required_fields: [external_customer_id, campaign_id]
   }
 
   dimension: campaign_status_raw {
