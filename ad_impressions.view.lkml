@@ -326,7 +326,7 @@ view: ad_impressions_ad_adapter {
 
 explore: ad_impressions_age_range_adapter {
   persist_with: adwords_etl_datagroup
-  extends: [ad_impressions_keyword_adapter]
+  extends: [ad_impressions_ad_group_adapter]
   from: ad_impressions_age_range_adapter
   view_name: fact
 
@@ -349,7 +349,7 @@ view: ad_impressions_age_range_adapter {
 
 explore: ad_impressions_audience_adapter {
   persist_with: adwords_etl_datagroup
-  extends: [ad_impressions_keyword_adapter]
+  extends: [ad_impressions_ad_group_adapter]
   from: ad_impressions_audience_adapter
   view_name: fact
 
@@ -372,7 +372,7 @@ view: ad_impressions_audience_adapter {
 
 explore: ad_impressions_gender_adapter {
   persist_with: adwords_etl_datagroup
-  extends: [ad_impressions_keyword_adapter]
+  extends: [ad_impressions_ad_group_adapter]
   from: ad_impressions_gender_adapter
   view_name: fact
 
@@ -395,7 +395,7 @@ view: ad_impressions_gender_adapter {
 
 explore: ad_impressions_parental_status_adapter {
   persist_with: adwords_etl_datagroup
-  extends: [ad_impressions_keyword_adapter]
+  extends: [ad_impressions_ad_group_adapter]
   from: ad_impressions_parental_status_adapter
   view_name: fact
 

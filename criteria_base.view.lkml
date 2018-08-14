@@ -151,6 +151,7 @@ view: criteria_base {
   }
 
   dimension: status_active {
+    hidden: yes
     type: yesno
     sql: ${status} = "Active" ;;
   }
@@ -177,12 +178,14 @@ view: criteria_base {
   }
 
   measure: count {
+    hidden: yes
     type: count_distinct
     sql: ${key_base} ;;
     drill_fields: [drill_detail*]
   }
 
   measure: count_active {
+    hidden: yes
     type: count_distinct
     sql: ${key_base} ;;
     filters: {

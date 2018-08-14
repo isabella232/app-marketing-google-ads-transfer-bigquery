@@ -152,6 +152,7 @@ view: keyword_adapter {
   }
 
   dimension: campaign_ad_group_keyword_combination {
+    hidden: yes
     type: string
     sql: CONCAT(${campaign.name}, "_", ${ad_group.ad_group_name}, "_", ${keyword.criteria}) ;;
   }
@@ -269,6 +270,7 @@ view: keyword_adapter {
   }
 
   dimension: status_active {
+    hidden: yes
     type: yesno
     sql: ${status} = "Active" ;;
   }
