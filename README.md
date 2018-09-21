@@ -1,11 +1,50 @@
-# Google AdWords: BigQuery Data Transfer Service
+# Google Ads
 
-### Dependencies
+LookML files for a schema mapping on BigQuery for google Ads compatible with [Google's BigQuery Data Transfer Service for Google Ads](https://cloud.google.com/bigquery/docs/adwords-transfer). This is designed to work with a ETL agnostic [Google Ads block](https://github.com/looker/app-marketing-google-ads).
 
-This adapter relies on a project `app_marketing_analytics_config` as specified in the manifest.lkml file. This project needs to include an `adwords_config.view.lkml` file.
+## To use this block, you will need to:
+
+### Include it in your [manifest.lkml](https://docs.looker.com/reference/manifest-reference):
+
+Note: This requires the Project Import feature currently in /admin/labs to be enabled on your Looker instance.
+
+#### Via local projects:
+
+Fork this repo and create a new project named `app-marketing-google-ads-adapter`
+
+manifest.lkml
+```LookML
+local_dependency: {
+  project: "app-marketing-google-ads-adapter"
+}
+
+
+local_dependency: {
+  project: "app-marketing-google-ads"
+}```
+
+Or remote dependency which don't require a local version.
+
+manifest.lkml
+```LookML
+
+remote_dependency: app-marketing-google-ads-adapter {
+  url: "git://github.com/looker/app-marketing-google-ads-transfer-bigquery"
+  ref: "76b9cfc1711f205dae6c6f71ea547ca7036121e7"
+}
+
+remote_dependency: app-marketing-google-ads {
+  url: "git://github.com/looker/app-marketing-google-ads"
+  ref: "557fa52e9fee322d9a601ee5bf009cf929ef0261"
+}```
+
+Note that the `ref:` should point to the latest commit in each respective repo [google-ads-transfer-bigquery](https://github.com/looker/app-marketing-google-ads-transfer-bigquery/commits/master) and [google-ads](https://github.com/looker/app-marketing-google-ads/commits/master).
+
+2. Create a `google_ads_config` view that is assumed by this project. This configuration requires a  file
 
 For example:
 
+google_ads_config.view.lkml
 ```LookML
 view: adwords_config {
   extension: required
@@ -20,6 +59,17 @@ view: adwords_config {
     sql:1234567890;;
   }
 }
+```
+
+3. Include the view files in your model.
+
+For example:
+
+marketing_analytics.model.lkml
+```LookML
+include: "/app-marketing-google-ads-adapter/*.view"
+include: "/app-marketing-google-ads/*.view"
+include: "/app-marketing-google-ads/*.dashboard"
 ```
 
 ### Interface
@@ -56,16 +106,6 @@ customer.view:
    - external_customer_id
 
 #### Targeting Criteria
-
-age_range.view
- - age_range
-
-audience.view
- - audience_adapter
-
-gender.view
- - gender_adapter
-
 geo.view
  - geotargeting
    - state
@@ -82,12 +122,6 @@ keyword.view
    - criteria
    - status_active
    - bidding_strategy_type
-
-parental_status.view
- - parental_status
-
-video.view
- - video
 
 #### Reports
 
