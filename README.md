@@ -2,7 +2,7 @@
 
 LookML files for a schema mapping on BigQuery for google Ads compatible with [Google's BigQuery Data Transfer Service for Google Ads](https://cloud.google.com/bigquery/docs/adwords-transfer). This is designed to work with an ETL agnostic [Google Ads block](https://github.com/looker/app-marketing-google-ads).
 
-_**Contents**_
+_**README Contents**_
 - [Using this block](#usingthisblock)
 - [Interface](#interface)
 - [Block Info](#blockinfo)
