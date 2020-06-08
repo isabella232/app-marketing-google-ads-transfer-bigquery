@@ -15,6 +15,12 @@ view: hour_base {
     type: number
     sql: ${TABLE}.HourOfDay ;;
   }
+
+  dimension: date_string {
+    hidden: yes
+    sql: CAST(${TABLE}.Date AS STRING) ;;
+  }
+
 }
 
 view: transformations_base {
@@ -188,16 +194,16 @@ view: ad_impressions_adapter {
   }
 }
 
-explore: ad_impressions_hour_adapter {
+explore: ad_impressions_daily_adapter {
   persist_with: adwords_etl_datagroup
   extends: [ad_impressions_adapter]
-  from: ad_impressions_hour_adapter
+  from: ad_impressions_daily_adapter
   view_name: fact
 }
 
-view: ad_impressions_hour_adapter {
+view: ad_impressions_daily_adapter {
   extends: [ad_impressions_adapter, hour_base]
-  sql_table_name: {{ fact.adwords_schema._sql }}.HourlyAccountStats_{{ fact.adwords_customer_id._sql }} ;;
+  sql_table_name: {{ fact.adwords_schema._sql }}.AccountBasicStats_{{ fact.adwords_customer_id._sql }} ;;
 }
 
 explore: ad_impressions_campaign_adapter {
@@ -225,6 +231,18 @@ view: ad_impressions_campaign_adapter {
     hidden: yes
     sql: CAST(${campaign_id} as STRING) ;;
   }
+}
+
+explore: ad_impressions_campaign_daily_adapter {
+  persist_with: adwords_etl_datagroup
+  extends: [ad_impressions_campaign_adapter]
+  from: ad_impressions_campaign_daily_adapter
+  view_name: fact
+}
+
+view: ad_impressions_campaign_daily_adapter {
+  extends: [ad_impressions_campaign_adapter, hour_base]
+  sql_table_name: {{ fact.adwords_schema._sql }}.CampaignBasicStats_{{ fact.adwords_customer_id._sql }} ;;
 }
 
 explore: ad_impressions_campaign_hour_adapter {
