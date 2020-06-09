@@ -66,7 +66,7 @@ For example:
 
 ```
 LookML
-view: adwords_config {
+view: google_ads_config {
   extension: required
 
   dimension: adwords_schema {

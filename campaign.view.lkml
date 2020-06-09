@@ -31,7 +31,7 @@ explore: campaign {
 
 view: campaign_adapter {
   extension: required
-  extends: [adwords_config, google_adwords_base]
+  extends: [google_ads_config, google_ads_base]
   sql_table_name: {{ campaign.adwords_schema._sql }}.Campaign_{{ campaign.adwords_customer_id._sql }} ;;
 
   dimension: advertising_channel_sub_type {

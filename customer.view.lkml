@@ -1,4 +1,4 @@
-include: "google_adwords_base.view"
+include: "google_ads_base.view"
 
 explore: customer_join {
   extension: required
@@ -21,7 +21,7 @@ explore: customer {
 
 view: customer_adapter {
   extension: required
-  extends: [adwords_config, google_adwords_base]
+  extends: [google_ads_config, google_ads_base]
   sql_table_name: {{ customer.adwords_schema._sql }}.Customer_{{ customer.adwords_customer_id._sql }} ;;
 
   dimension: account_currency_code {

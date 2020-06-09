@@ -1,7 +1,7 @@
-include: "google_adwords_base.view"
+include: "google_ads_base.view"
 
 view: video_adapter {
-  extends: [adwords_config, google_adwords_base]
+  extends: [google_ads_config, google_ads_base]
   sql_table_name: {{ video.adwords_schema._sql }}.Video_{{ video.adwords_customer_id._sql }} ;;
 
   dimension: ad_group_id {

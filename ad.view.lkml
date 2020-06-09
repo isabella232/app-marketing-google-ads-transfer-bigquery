@@ -49,7 +49,7 @@ explore: ad {
 
 view: ad_adapter {
   extension: required
-  extends: [adwords_config, google_adwords_base]
+  extends: [google_ads_config, google_ads_base]
   sql_table_name: {{ ad.adwords_schema._sql }}.Ad_{{ ad.adwords_customer_id._sql }} ;;
 
   dimension: ad_group_ad_disapproval_reasons {

@@ -1,4 +1,4 @@
-view: google_adwords_base {
+view: google_ads_base {
   extension: required
 
   dimension: _date {

@@ -1,5 +1,5 @@
 include: "ad_group.view"
-include: "google_adwords_base.view"
+include: "google_ads_base.view"
 
 explore: criteria_joins_base {
   extension: required
@@ -34,7 +34,7 @@ explore: criteria_joins_base {
 
 view: criteria_base {
   extension: required
-  extends: [google_adwords_base]
+  extends: [google_ads_base]
 
   dimension: ad_group_id {
     sql: ${TABLE}.AdGroupId ;;

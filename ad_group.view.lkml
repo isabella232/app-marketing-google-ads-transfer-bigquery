@@ -39,7 +39,7 @@ explore: ad_group {
 
 view: ad_group_adapter {
   extension: required
-  extends: [adwords_config, google_adwords_base]
+  extends: [google_ads_config, google_ads_base]
   sql_table_name: {{ ad_group.adwords_schema._sql }}.AdGroup_{{ ad_group.adwords_customer_id._sql }} ;;
 
   dimension: ad_group_desktop_bid_modifier {

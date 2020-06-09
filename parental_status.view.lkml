@@ -10,7 +10,7 @@ explore: parental_status_adapter {
 }
 
 view: parental_status_adapter {
-  extends: [adwords_config, criteria_base]
+  extends: [google_ads_config, criteria_base]
   sql_table_name: {{ criteria.adwords_schema._sql }}.ParentalStatus_{{ criteria.adwords_customer_id._sql }} ;;
 
   dimension: criteria {

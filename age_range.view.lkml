@@ -10,7 +10,7 @@ explore: age_range_adapter {
 }
 
 view: age_range_adapter {
-  extends: [adwords_config, criteria_base]
+  extends: [google_ads_config, criteria_base]
   sql_table_name: {{ criteria.adwords_schema._sql }}.AgeRange_{{ criteria.adwords_customer_id._sql }} ;;
 
   dimension: criteria {

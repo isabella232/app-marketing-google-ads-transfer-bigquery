@@ -82,7 +82,7 @@ explore: ad_impressions_adapter {
 }
 
 view: ad_impressions_adapter {
-  extends: [adwords_config, google_adwords_base, transformations_base]
+  extends: [google_ads_config, google_ads_base, transformations_base]
   sql_table_name: {{ fact.adwords_schema._sql }}.AccountBasicStats_{{ fact.adwords_customer_id._sql }} ;;
 
   dimension: average_position {
@@ -451,7 +451,7 @@ explore: ad_impressions_video_adapter {
 }
 
 view: ad_impressions_video_adapter {
-  extends: [adwords_config, google_adwords_base, transformations_base]
+  extends: [google_ads_config, google_ads_base, transformations_base]
   sql_table_name: {{ fact.adwords_schema._sql }}.VideoBasicStats_{{ fact.adwords_customer_id._sql }} ;;
 
   dimension: ad_group_id {
